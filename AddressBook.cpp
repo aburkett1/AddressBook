@@ -1,195 +1,195 @@
-#include "AddressBook.h"
+// #include "AddressBook.h"
 
-// =============================================================================
-// MARK: Constructors
-// =============================================================================
+// // =============================================================================
+// // MARK: Constructors
+// // =============================================================================
 
-AddressBook::AddressBook()
-{
-    //nothing needed; contacts is already an empty vector
-}
+// AddressBook::AddressBook()
+// {
+//     //nothing needed; contacts is already an empty vector
+// }
 
-// =============================================================================
-// MARK: Contact Manipulation
-// =============================================================================
+// // =============================================================================
+// // MARK: Contact Manipulation
+// // =============================================================================
 
-void AddressBook::addContact(Contact newContact)
-{
-    contacts.push_back(newContact);
-}
+// void AddressBook::addContact(Contact newContact)
+// {
+//     contacts.push_back(newContact);
+// }
 
-// Removes only first instace of nameKey. Case Sensitive
-bool AddressBook::removeContact(string nameKey) {
-    for (int i = 0; i < contacts.size(); i++) {
-        if (contacts[i].getName() == nameKey) {
-            contacts.erase(contacts.begin() + i);
-            return true;
-        }
-    }
-    return false;
-}
+// // Removes only first instace of nameKey. Case Sensitive
+// bool AddressBook::removeContact(string nameKey) {
+//     for (int i = 0; i < contacts.size(); i++) {
+//         if (contacts[i].getName() == nameKey) {
+//             contacts.erase(contacts.begin() + i);
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
 
-// =============================================================================
-// MARK: SEARCH
-// =============================================================================
+// // =============================================================================
+// // MARK: SEARCH
+// // =============================================================================
 
-// Returns empty Contact object if search fails
-Contact AddressBook::searchByName(string nameKey) const {
-    for (int i = 0; i < contacts.size(); i++) {
-        if (contacts[i].getName() == nameKey) {
-            return contacts[i];
-        }
-    }
+// // Returns empty Contact object if search fails
+// Contact AddressBook::searchByName(string nameKey) const {
+//     for (int i = 0; i < contacts.size(); i++) {
+//         if (contacts[i].getName() == nameKey) {
+//             return contacts[i];
+//         }
+//     }
     
-    return Contact();
-}
+//     return Contact();
+// }
 
-// When we return Contact(), we are providing a default constructed contact AN EMPTY CONTACT
-Contact AddressBook::searchByEmail(string emailKey) const
-{
-    for (int i = 0; i < contacts.size(); i++) {
-        if (contacts[i].getEmail() == emailKey) {
-            return contacts[i];
-        }
-    }
+// // When we return Contact(), we are providing a default constructed contact AN EMPTY CONTACT
+// Contact AddressBook::searchByEmail(string emailKey) const
+// {
+//     for (int i = 0; i < contacts.size(); i++) {
+//         if (contacts[i].getEmail() == emailKey) {
+//             return contacts[i];
+//         }
+//     }
     
-    return Contact();
-}
+//     return Contact();
+// }
 
-// Search for contact by phone number.
-vector<Contact> AddressBook::searchByNumber(string numberKey) const
-{
-    // Variables
-    vector<Contact> matches = {};
+// // Search for contact by phone number.
+// vector<Contact> AddressBook::searchByNumber(string numberKey) const
+// {
+//     // Variables
+//     vector<Contact> matches = {};
     
-    // For each contact, check the number. If correct, add it to the
-    // matches vector.
-    for (auto contact : contacts)
-    {
-        if (contact.getPhoneNumber() == numberKey)
-        {
-            matches.push_back(contact);
-        }
-    }
+//     // For each contact, check the number. If correct, add it to the
+//     // matches vector.
+//     for (auto contact : contacts)
+//     {
+//         if (contact.getPhoneNumber() == numberKey)
+//         {
+//             matches.push_back(contact);
+//         }
+//     }
 
-    // Return the vector of matched numbers.
-    return matches;
-}
-
-
-// =============================================================================
-// MARK: FILTER
-// =============================================================================
-
-// Returns empty vector if contact vector is empty, or if there are no matches
-vector<Contact> AddressBook::filterByType(ContactType typeKey) const {
-    vector<Contact> temp;
-    for (int i = 0; i < contacts.size(); i++) {
-        if (contacts[i].getType() == typeKey) {
-            temp.push_back(contacts[i]);
-        }
-    }
-
-    return temp;
-}
+//     // Return the vector of matched numbers.
+//     return matches;
+// }
 
 
-/*
-    For each contact:
-        checking all tags for each contact,
-                if contact contains tagkey then move the contact to temp and iterate to next contact
-                else check next tag
+// // =============================================================================
+// // MARK: FILTER
+// // =============================================================================
+
+// // Returns empty vector if contact vector is empty, or if there are no matches
+// vector<Contact> AddressBook::filterByType(ContactType typeKey) const {
+//     vector<Contact> temp;
+//     for (int i = 0; i < contacts.size(); i++) {
+//         if (contacts[i].getType() == typeKey) {
+//             temp.push_back(contacts[i]);
+//         }
+//     }
+
+//     return temp;
+// }
+
+
+// /*
+//     For each contact:
+//         checking all tags for each contact,
+//                 if contact contains tagkey then move the contact to temp and iterate to next contact
+//                 else check next tag
         
-        if it makes it out of the loop then move onto next contact
+//         if it makes it out of the loop then move onto next contact
 
-    after all contacts have been looked at and sorted input into temp return temp
-*/
-vector<Contact> AddressBook::filterByTag(string tagKey) const
-{
-    vector<Contact> temp;
+//     after all contacts have been looked at and sorted input into temp return temp
+// */
+// vector<Contact> AddressBook::filterByTag(string tagKey) const
+// {
+//     vector<Contact> temp;
 
-    // for loop moves through all contacts
-    for (int i = 0; i < contacts.size(); i++) {
+//     // for loop moves through all contacts
+//     for (int i = 0; i < contacts.size(); i++) {
         
-        // loop to move through all elements of the vector tags inside of contact[i]
-        for(int j = 0; j < contacts[i].getTags().size(); j++)
-        {
-            if(contacts[i].getTags()[j] == tagKey)
-            {
-                temp.push_back(contacts[i]);
-                break;
-            }
-        }
-    }
+//         // loop to move through all elements of the vector tags inside of contact[i]
+//         for(int j = 0; j < contacts[i].getTags().size(); j++)
+//         {
+//             if(contacts[i].getTags()[j] == tagKey)
+//             {
+//                 temp.push_back(contacts[i]);
+//                 break;
+//             }
+//         }
+//     }
 
-    return temp;
-}
+//     return temp;
+// }
 
-// Filter contacts by missing information.
-vector<Contact> AddressBook::filterByMissing() const
-{
-    // Variables
-    vector<Contact> missing = {};
+// // Filter contacts by missing information.
+// vector<Contact> AddressBook::filterByMissing() const
+// {
+//     // Variables
+//     vector<Contact> missing = {};
 
-    // For each contact, if the phone number or the email is missing, add it to
-    // the missing vector.
-    for (auto contact : contacts)
-    {
-        if (contact.getPhoneNumber() == "" ||
-            contact.getEmail() == "")
-        {
-            missing.push_back(contact);
-        }
-    }
+//     // For each contact, if the phone number or the email is missing, add it to
+//     // the missing vector.
+//     for (auto contact : contacts)
+//     {
+//         if (contact.getPhoneNumber() == "" ||
+//             contact.getEmail() == "")
+//         {
+//             missing.push_back(contact);
+//         }
+//     }
 
-    // Return vector of contacts with missing information.
-    return missing;
-}
+//     // Return vector of contacts with missing information.
+//     return missing;
+// }
 
-// =============================================================================
-// MARK: MISC
-// =============================================================================
+// // =============================================================================
+// // MARK: MISC
+// // =============================================================================
 
 
 
-// =============================================================================
-// MARK: File IO
-// =============================================================================
+// // =============================================================================
+// // MARK: File IO
+// // =============================================================================
 
-// Export contacts vector to txt file.
-void AddressBook::exportToFile(ofstream& out)
-{
-    // Export contacts vector size
-    out << contacts.size();
+// // Export contacts vector to txt file.
+// void AddressBook::exportToFile(ofstream& out)
+// {
+//     // Export contacts vector size
+//     out << contacts.size();
 
-    // Export each contact in contacts
-    for (auto contact : contacts)
-    {
-        contact.exportToFile(out);
-    }
-}
+//     // Export each contact in contacts
+//     for (auto contact : contacts)
+//     {
+//         contact.exportToFile(out);
+//     }
+// }
 
-// Import contacts from text file into vector.
-void AddressBook::importFromFile(ifstream& in)
-{
-    // Variables
-    int contactsSize{};
-    Contact contact = Contact();
+// // Import contacts from text file into vector.
+// void AddressBook::importFromFile(ifstream& in)
+// {
+//     // Variables
+//     int contactsSize{};
+//     Contact contact = Contact();
     
-    // Get number of contacts
-    in >> contactsSize;
-    cin.ignore(10000, '\n');
+//     // Get number of contacts
+//     in >> contactsSize;
+//     cin.ignore(10000, '\n');
 
-    for (int _ = 0; _ < contactsSize; _++)
-    {
-        // Import contact.
-        contact.importFromFile(in);
+//     for (int _ = 0; _ < contactsSize; _++)
+//     {
+//         // Import contact.
+//         contact.importFromFile(in);
 
-        // Push contact into contacts vector.
-        contacts.push_back(contact);
+//         // Push contact into contacts vector.
+//         contacts.push_back(contact);
 
-        // Reset contact data.
-        contact = Contact();
-    }
-}
+//         // Reset contact data.
+//         contact = Contact();
+//     }
+// }
