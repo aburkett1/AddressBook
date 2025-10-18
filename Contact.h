@@ -28,6 +28,7 @@ public:
     // Constructors
     Contact();
     Contact(string newName, string newEmail, string newNumber, string newCity, ContactType newType);
+    Contact(const Contact& other);
 
     // Setters
     void setName(string newName);

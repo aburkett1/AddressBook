@@ -1,5 +1,7 @@
 #include "Menu.h"
 
+
+// MARK: Constructors
 Menu::Menu() 
 {
     title = "";
@@ -13,6 +15,8 @@ Menu::Menu(string title, vector<string>& options)
 
 Menu::~Menu() {}
 
+
+// MARK: Adders
 void Menu::addTitle(string title)
 {
     this->title = title;
@@ -26,6 +30,8 @@ void Menu::addOptions(vector<string>& options)
     }
 }
 
+
+// MARK: Utility
 int Menu::displayMenu()
 {
     // Variables
@@ -48,6 +54,21 @@ int Menu::displayMenu()
     // Display Exit / Return
     cout << 0 << " - " << (title == "MAIN MENU" ? "Exit Program" : "Return to Previous Page") << endl;
 
+    // Get User Selection
+    selection = getUserSelection();
+
+    // Print line & Reset Fill
+    cout << setw(79) << '-' << endl;
+    cout << setfill(' ');
+
+    return selection;
+}
+
+int Menu::getUserSelection()
+{
+    // Variables
+    int selection{};
+    
     // Print line
 	cout << setw(79) << '-' << endl;
 
@@ -66,10 +87,6 @@ int Menu::displayMenu()
         cin >> selection;
         cin.ignore(10000, '\n');
     }
-
-    // Print line & Reset Fill
-    cout << setw(79) << '-' << endl;
-    cout << setfill(' ');
 
     return selection;
 }
