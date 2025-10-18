@@ -34,27 +34,29 @@ bool AddressBook::removeContact(string nameKey) {
 // MARK: SEARCH
 // =============================================================================
 
-// Returns empty Contact object if search fails
-Contact AddressBook::searchByName(string nameKey) const {
+// Returns empty vector of Contacts if search fails
+vector<Contact> AddressBook::searchByName(string nameKey) const {
+    vector<Contact> temp;
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getName() == nameKey) {
-            return contacts[i];
+            temp.push_back(contacts[i]);
         }
     }
-    
-    return Contact();
+
+    return temp;
 }
 
 // When we return Contact(), we are providing a default constructed contact AN EMPTY CONTACT
-Contact AddressBook::searchByEmail(string emailKey) const
+vector<Contact> AddressBook::searchByEmail(string emailKey) const
 {
+    vector<Contact> temp;
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getEmail() == emailKey) {
-            return contacts[i];
+            temp.push_back(contacts[i]);
         }
     }
     
-    return Contact();
+    return temp;
 }
 
 // Search for contact by phone number.
