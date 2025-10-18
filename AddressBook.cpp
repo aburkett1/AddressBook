@@ -154,12 +154,13 @@ vector<Contact> AddressBook::filterByCity(string cityKey) const {
     vector<Contact> temp;
 
     for (int i = 0; i < contacts.size(); i++) {
-        if (contacts[i].getCity() == tagKey){
+        if (contacts[i].getCity() == cityKey){
             {
                 temp.push_back(contacts[i]);
                 break;
             }
         }
+    }
     return temp;
 }
 
@@ -169,7 +170,7 @@ vector<Contact> AddressBook::filterByCity(string cityKey) const {
 
     //loops through vector looking for one type at a time
     //and calling printInfo(); if it is the matching type.
-void listReportByType() const {
+void AddressBook::listReportContacts() const {
 
     cout << "Person" << endl;
     for (int i = 0; i < contacts.size(); i++) {
@@ -198,7 +199,7 @@ void listReportByType() const {
 
 //loops through contacts vector calling printInfo() for every
 //contact in the vector.
-void printContacts() {
+void AddressBook::printContacts() const {
     for (int i = 0; i < contacts.size(); i++) {
         contacts[i].printInfo();
     }
