@@ -27,6 +27,17 @@ Contact::Contact(string newName, string newEmail, string newNumber, string newCi
     type = newType; 
 }
 
+// Copy Constructor
+// Does not override groups and tags
+Contact::Contact(const Contact& other)
+{
+    name = other.getName();
+    email = other.getEmail();
+    phoneNumber = other.getPhoneNumber();
+    city = other.getCity();
+    type = other.getType();
+}
+
 
 // =============================================================================
 // MARK: Setters
@@ -68,11 +79,43 @@ void Contact::setType(ContactType newType)
 // =============================================================================
 
 void Contact::addTag(string newTag) {
-    tags.push_back(newTag);
+    // Variable
+    bool hasTag = false;
+
+    // Check to see if the contact already has the tag.
+    for (int i = 0; i < tags.size(); i++)
+    {
+        if (tags[i] == newTag)
+        {
+            hasTag = true;
+        }
+    }
+
+    // If it is not included, add it.
+    if (!hasTag)
+    {
+        tags.push_back(newTag);
+    }
 }
 
 void Contact::addGroup(string newGroup) {
-    groups.push_back(newGroup);
+    // Variable
+    bool hasGroup = false;
+    
+    // Check to see if allGroups already has the new group.
+    for (int i = 0; i < groups.size(); i++)
+    {
+        if (groups[i] == newGroup)
+        {
+            hasGroup = true;
+        }
+    }
+
+    // If it is not included, add it.
+    if (!hasGroup)
+    {
+        groups.push_back(newGroup);
+    }
 }
 
 
@@ -166,7 +209,6 @@ const vector<string>& Contact::getTags() const
 // =============================================================================
 
 // Prints info to console line by line
-// Does not begin or end with a newline, caller is responsible for line formatting
 void Contact::printInfo() const {
     cout << "Name: " << name << endl;
     cout << "Email: " << email << endl;
@@ -192,6 +234,7 @@ void Contact::printInfo() const {
             cout << tags[i];
         }
     }
+    cout << endl;
 }
 
 

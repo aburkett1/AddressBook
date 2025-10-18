@@ -10,10 +10,16 @@ public:
 
     // Contact Manipulation
     void addContact(Contact newContact);
-    bool removeContact(string nameKey);
+    void editContact(Contact revisedContact, int index);
+    void removeContact(int index);
+    void addGroupToContact(string group, int index);
+    void removeGroupFromContact(string group, int index);
+    void addTagToContact(string tag, int index);
+    void removeTagFromContact(string tag, int index);
 
     // Search Methods
     vector<Contact> searchByName(string nameKey) const;
+    void searchByName(string nameKey, vector<Contact>& results, vector<int>& indexes);
     vector<Contact> searchByEmail(string emailKey) const;
     vector<Contact> searchByNumber(string numberKey) const;
 
@@ -25,7 +31,10 @@ public:
     
     // MISC Methods
     void listReportContacts() const;
+    void reportGroupSummaries();
     void printContacts() const;
+    void printContacts(vector<Contact>& contacts) const;
+    void printReportGroup(vector<Contact>& contacts, string group);
 
     // File IO
     void exportToFile(ofstream&);
@@ -33,6 +42,7 @@ public:
 
 private:
     vector<Contact> contacts;
+    vector<string> allGroups;
 };
 
 #endif
