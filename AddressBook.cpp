@@ -84,6 +84,21 @@ vector<Contact> AddressBook::searchByNumber(string numberKey) const
 // MARK: FILTER
 // =============================================================================
 
+vector<Contact> AddressBook::filterByCity(string cityKey) const {
+
+    vector<Contact> temp;
+
+    for (int i = 0; i < contacts.size(); i++) {
+        if (contacts[i].getCity() == cityKey){
+            {
+                temp.push_back(contacts[i]);
+                break;
+            }
+        }
+    }
+    return temp;
+}
+
 // Returns empty vector if contact vector is empty, or if there are no matches
 vector<Contact> AddressBook::filterByType(ContactType typeKey) const {
     vector<Contact> temp;
@@ -149,20 +164,6 @@ vector<Contact> AddressBook::filterByMissing() const
     return missing;
 }
 
-vector<Contact> AddressBook::filterByCity(string cityKey) const {
-
-    vector<Contact> temp;
-
-    for (int i = 0; i < contacts.size(); i++) {
-        if (contacts[i].getCity() == cityKey){
-            {
-                temp.push_back(contacts[i]);
-                break;
-            }
-        }
-    }
-    return temp;
-}
 
 // =============================================================================
 // MARK: MISC
