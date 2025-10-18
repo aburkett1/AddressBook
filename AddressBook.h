@@ -13,8 +13,8 @@ public:
     bool removeContact(string nameKey);
 
     // Search Methods
-    Contact searchByName(string nameKey) const;
-    Contact searchByEmail(string emailKey) const;
+    vector<Contact> searchByName(string nameKey) const;
+    vector<Contact> searchByEmail(string emailKey) const;
     vector<Contact> searchByNumber(string numberKey) const;
 
     // Filter Methods
