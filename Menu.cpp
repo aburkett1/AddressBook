@@ -56,9 +56,25 @@ int Menu::displayMenu()
     cin >> selection;
     cin.ignore(10000, '\n');
 
+    while (!verifySelection(selection))
+    {
+        // Print line
+	    cout << setw(79) << '-' << endl;
+
+        // Restate Prompt
+        cout << "Please Select Option: ";
+        cin >> selection;
+        cin.ignore(10000, '\n');
+    }
+
     // Print line & Reset Fill
     cout << setw(79) << '-' << endl;
     cout << setfill(' ');
 
     return selection;
+}
+
+bool Menu::verifySelection(int selection)
+{
+    return selection >= 0 && selection <= options.size();
 }

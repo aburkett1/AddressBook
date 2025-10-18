@@ -15,7 +15,7 @@ public:
     void addTitle(string title);
     void addOptions(vector<string>& options);
     int displayMenu();
-
+    bool verifySelection(int selection);
 
 private:
     string title;
