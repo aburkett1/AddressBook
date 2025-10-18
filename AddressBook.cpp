@@ -149,9 +149,61 @@ vector<Contact> AddressBook::filterByMissing() const
     return missing;
 }
 
+vector<Contact> AddressBook::filterByCity(string cityKey) const {
+
+    vector<Contact> temp;
+
+    for (int i = 0; i < contacts.size(); i++) {
+        if (contacts[i].getCity() == tagKey){
+            {
+                temp.push_back(contacts[i]);
+                break;
+            }
+        }
+    return temp;
+}
+
 // =============================================================================
 // MARK: MISC
 // =============================================================================
+
+    //loops through vector looking for one type at a time
+    //and calling printInfo(); if it is the matching type.
+void listReportByType() const {
+
+    cout << "Person" << endl;
+    for (int i = 0; i < contacts.size(); i++) {
+        if (contacts[i].getType() == PERSON)
+            contacts[i].printInfo();
+    }
+
+    cout << "Business" << endl;
+    for (int i = 0; i < contacts.size(); i++) {
+        if (contacts[i].getType() == BUSINESS)
+            contacts[i].printInfo();
+    }
+
+    cout << "Vendor" << endl;
+    for (int i = 0; i < contacts.size(); i++) {
+        if (contacts[i].getType() == VENDOR)
+            contacts[i].printInfo();
+    }
+
+    cout << "Emergency" << endl;
+    for (int i = 0; i < contacts.size(); i++) {
+        if (contacts[i].getType() == EMERGENCY)
+        contacts[i].printInfo();
+    }
+}
+
+//loops through contacts vector calling printInfo() for every
+//contact in the vector.
+void printContacts() {
+    for (int i = 0; i < contacts.size(); i++) {
+        contacts[i].printInfo();
+    }
+}
+
 
 
 
