@@ -36,6 +36,9 @@ void Contact::addTag(string newTag) {
     tags.push_back(newTag);
 }
 
+void Contact::addGroup(string newGroup) {
+    groups.push_back(newGroup);
+}
 
 // =============================================================================
 // MARK: Removers
@@ -63,6 +66,15 @@ void Contact::removeGroup(string groupKey)
     << "Nothing was deleted." << endl << endl;
     return;
 
+}
+
+void Contact:: removeTag(string tagKey) {
+    for (int i = 0; i < tags.size(); i++) {
+        if (tags[i] == tagKey) {
+            tags.erase(tags.begin() + i);
+            return;
+        }
+    }
 }
 
 
