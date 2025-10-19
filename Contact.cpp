@@ -27,13 +27,95 @@ Contact::Contact(string newName, string newEmail, string newNumber, string newCi
     type = newType; 
 }
 
+// Copy Constructor
+// Does not override groups and tags
+Contact::Contact(const Contact& other)
+{
+    name = other.getName();
+    email = other.getEmail();
+    phoneNumber = other.getPhoneNumber();
+    city = other.getCity();
+    type = other.getType();
+}
+
+
+// =============================================================================
+// MARK: Setters
+// =============================================================================
+
+// Setter for name of the contact
+void Contact::setName(string newName)
+{
+    name = newName;
+}
+
+// Setter for email in the contact
+void Contact::setEmail(string newEmail)
+{
+    email = newEmail;
+}
+
+// Setter for phone number in the contact
+void Contact::setPhoneNumber(string newNumber)
+{
+    phoneNumber = newNumber;
+}
+
+// Setter for city in the contact
+void Contact::setCity(string newCity)
+{
+    city = newCity;
+}
+
+// Setter for contact type in the contact
+void Contact::setType(ContactType newType)
+{
+    type = newType;
+}
+
 
 // =============================================================================
 // MARK: Adders
 // =============================================================================
 
 void Contact::addTag(string newTag) {
-    tags.push_back(newTag);
+    // Variable
+    bool hasTag = false;
+
+    // Check to see if the contact already has the tag.
+    for (int i = 0; i < tags.size(); i++)
+    {
+        if (tags[i] == newTag)
+        {
+            hasTag = true;
+        }
+    }
+
+    // If it is not included, add it.
+    if (!hasTag)
+    {
+        tags.push_back(newTag);
+    }
+}
+
+void Contact::addGroup(string newGroup) {
+    // Variable
+    bool hasGroup = false;
+    
+    // Check to see if allGroups already has the new group.
+    for (int i = 0; i < groups.size(); i++)
+    {
+        if (groups[i] == newGroup)
+        {
+            hasGroup = true;
+        }
+    }
+
+    // If it is not included, add it.
+    if (!hasGroup)
+    {
+        groups.push_back(newGroup);
+    }
 }
 
 
@@ -65,11 +147,61 @@ void Contact::removeGroup(string groupKey)
 
 }
 
+void Contact:: removeTag(string tagKey) {
+    for (int i = 0; i < tags.size(); i++) {
+        if (tags[i] == tagKey) {
+            tags.erase(tags.begin() + i);
+            return;
+        }
+    }
+}
+
 
 // =============================================================================
 // MARK: Getters
 // =============================================================================
 
+// Getter for name in the contact
+string Contact::getName() const
+{
+    return name;
+}
+
+// Getter for email in the contact
+string Contact::getEmail() const
+{
+    return email;
+}
+
+// Getter for phone number in the contact
+string Contact::getPhoneNumber() const
+{
+    return phoneNumber;
+}
+
+// Getter for city in the contact
+string Contact::getCity() const
+{
+    return city;
+}
+
+// Getter for contact type in the contact
+ContactType Contact::getType() const
+{
+    return type;
+}
+
+// Getter for group of the contact in the contact
+const vector<string>& Contact::getGroups() const
+{
+    return groups;
+}
+
+// Getter for the tag of the contact in the contact
+const vector<string>& Contact::getTags() const
+{
+    return tags;
+}
 
 
 // =============================================================================
@@ -77,7 +209,6 @@ void Contact::removeGroup(string groupKey)
 // =============================================================================
 
 // Prints info to console line by line
-// Does not begin or end with a newline, caller is responsible for line formatting
 void Contact::printInfo() const {
     cout << "Name: " << name << endl;
     cout << "Email: " << email << endl;
@@ -103,6 +234,7 @@ void Contact::printInfo() const {
             cout << tags[i];
         }
     }
+    cout << endl;
 }
 
 
