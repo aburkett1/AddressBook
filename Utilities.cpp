@@ -273,7 +273,7 @@ int contactSelection(vector<Contact>& results)
 
 void pressEnterToContinue() {
     cout << "Press [ENTER] to continue...";
-    cin.get();
+    cin.ignore(10000, '\n');
 }
 
 
