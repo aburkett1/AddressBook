@@ -96,7 +96,6 @@ int main()
                     // Display results for selection
                     displayResults(searchResultsContacts);
 
-                    // MARK: Specify input type
                     // Get user selection (contactSelection self-verifies)
                     selectedIndex = contactSelection(searchResultsContacts);
                     selectedContact = searchResultsContacts[selectedIndex];
