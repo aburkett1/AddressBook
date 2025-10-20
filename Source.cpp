@@ -112,28 +112,28 @@ int main()
                         switch (selection)
                         {
                         case 1: // Edit Contact
-                            addressBook.editContact(getContactDetails(contactTypeMenu), selectedIndex);
+                            addressBook.editContact(getContactDetails(contactTypeMenu), searchResultsIndexes[selectedIndex]);
                             break;
 
                         case 2: // Delete Contact
-                            addressBook.removeContact(selectedIndex);
+                            addressBook.removeContact(searchResultsIndexes[selectedIndex]);
                             cout << "Contact Removed.";
                             break;
 
                         case 3: // Add a Group
-                            addressBook.addGroupToContact(getGroup(), selectedIndex);
+                            addressBook.addGroupToContact(getGroup(), searchResultsIndexes[selectedIndex]);
                             break;
 
                         case 4: // Remove a Group
-                            addressBook.removeGroupFromContact(getGroup(), selectedIndex);
+                            addressBook.removeGroupFromContact(getGroup(), searchResultsIndexes[selectedIndex]);
                             break;
 
                         case 5: // Add a Tag
-                            addressBook.addTagToContact(getTag(), selectedIndex);
+                            addressBook.addTagToContact(getTag(), searchResultsIndexes[selectedIndex]);
                             break;
 
                         case 6: // Remove a Tag
-                            addressBook.removeTagFromContact(getTag(), selectedIndex);
+                            addressBook.removeTagFromContact(getTag(), searchResultsIndexes[selectedIndex]);
                             break;
                         
                         default:
