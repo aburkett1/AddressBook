@@ -327,7 +327,7 @@ void AddressBook::exportToFile(ofstream& out)
     out << contacts.size() << endl;
 
     // Export each contact in contacts
-    for (auto contact : contacts)
+    for (auto& contact : contacts)
     {
         contact.exportToFile(out);
     }
