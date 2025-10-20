@@ -22,6 +22,7 @@ public:
     void searchByName(string nameKey, vector<Contact>& results, vector<int>& indexes);
     vector<Contact> searchByEmail(string emailKey) const;
     vector<Contact> searchByNumber(string numberKey) const;
+    Contact searchByIndex(int index);
 
     // Filter Methods
     vector<Contact> filterByCity(string cityKey) const;   

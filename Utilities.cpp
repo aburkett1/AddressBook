@@ -13,7 +13,7 @@ vector<Menu> setupMenus()
             Manage Contacts
                 Add a Contact
                 Edit Contact Menu
-                    Edit Existing Contact
+                    Edit Contact
                     Delete Contact
                     Add a Group
                     Remove a Group
@@ -63,7 +63,7 @@ vector<Menu> setupMenus()
 
     // View Contacts
     vector<string> editContactMenuOptions = {
-        "Edit Existing Contact",
+        "Edit Contact",
         "Delete Contact",
         "Add a Group",
         "Remove a Group",

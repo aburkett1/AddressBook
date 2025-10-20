@@ -123,6 +123,7 @@ int main()
                     while (selection != 0)
                     {
                         clearScreen();
+                        displayContact(selectedContact);
                         switch (selection)
                         {
                         case 1: // Edit Contact
@@ -131,7 +132,8 @@ int main()
 
                         case 2: // Delete Contact
                             addressBook.removeContact(searchResultsIndexes[selectedIndex]);
-                            cout << "Contact Removed.";
+                            cout << "Contact Removed." << endl;
+                            pressEnterToContinue();
                             break;
 
                         case 3: // Add a Group
@@ -162,6 +164,11 @@ int main()
                         }
 
                         clearScreen();
+
+                        // Get updated contact details and display them.
+                        selectedContact = addressBook.searchByIndex(searchResultsIndexes[selectedIndex]);
+                        displayContact(selectedContact);
+
                         selection = editContactMenu.displayMenu();
                     }
                     

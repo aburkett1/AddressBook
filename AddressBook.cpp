@@ -140,6 +140,11 @@ vector<Contact> AddressBook::searchByNumber(string numberKey) const
     return matches;
 }
 
+Contact AddressBook::searchByIndex(int index)
+{
+    return contacts[index];
+}
+
 
 // =============================================================================
 // MARK: FILTER
