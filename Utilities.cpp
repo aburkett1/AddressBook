@@ -306,3 +306,11 @@ void displayContact(Contact& selectedContact)
     cout << endl;
     cout << setw(79) << '-' << endl;
 }
+
+void clearScreen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
