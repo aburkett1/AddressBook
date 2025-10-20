@@ -220,13 +220,17 @@ const vector<string>& Contact::getTags() const
 
 // Prints info to console line by line
 void Contact::printInfo() const {
-    cout << "Name: " << name << endl;
-    cout << "Email: " << email << endl;
-    cout << "Phone Number: " << phoneNumber << endl;
-    cout << "City: " << city << endl;
-    cout << "Contact Type: " << ContactTypeToString(type) << endl;
+    // Constants
+    const int COL_WIDTH = 12;
 
-    cout << "Groups: ";
+    cout << left;
+    cout << setw(COL_WIDTH) << "Name" << ": " << name << endl;
+    cout << setw(COL_WIDTH) << "Email" << ": " << email << endl;
+    cout << setw(COL_WIDTH) << "Phone Number" << ": " << phoneNumber << endl;
+    cout << setw(COL_WIDTH) << "City" << ": " << city << endl;
+    cout << setw(COL_WIDTH) << "Contact Type" << ": " << ContactTypeToString(type) << endl;
+
+    cout << setw(COL_WIDTH) << "Groups" << ": ";
     for (int i = 0; i < groups.size(); i++) {
         if (i < groups.size() - 1) {
             cout << groups[i] << ", ";
@@ -236,7 +240,7 @@ void Contact::printInfo() const {
     }
     cout << endl;
 
-    cout << "Tags: ";
+    cout << setw(COL_WIDTH) << "Tags" << ": ";
     for (int i = 0; i < tags.size(); i++) {
         if (i < tags.size() - 1) {
             cout << tags[i] << ", ";
@@ -245,6 +249,7 @@ void Contact::printInfo() const {
         }
     }
     cout << endl;
+    cout << right;
 }
 
 
