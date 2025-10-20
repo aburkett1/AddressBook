@@ -252,8 +252,6 @@ int contactSelection(vector<Contact>& results)
     int selection{};
     bool valid = false;
 
-    cout << setfill('-');
-
     while (!valid) {
         cout << "Select Contact Option (1-" << results.size() << "), enter 0 to cancel: ";
 
@@ -261,9 +259,9 @@ int contactSelection(vector<Contact>& results)
         if (!(cin >> selection)) {
             cin.clear();
             cin.ignore(10000, '\n');
-            cout << setw(79) << '-' << endl;
+            printLine();
             cout << "Invalid input.\nPlease select Contact Option (1-" << results.size() << "), enter 0 to cancel.\n";
-            cout << setw(79) << '-' << endl;
+            printLine();
         } else {
             cin.ignore(10000, '\n');
 
@@ -271,16 +269,14 @@ int contactSelection(vector<Contact>& results)
             if (selection == 0) return -1;
 
             if (selection < 1 || selection > results.size()) {
-                cout << setw(79) << '-' << endl;
+                printLine();
                 cout << "Invalid input.\nPlease select Contact Option (1-" << results.size() << "), enter 0 to cancel.\n";
-                cout << setw(79) << '-' << endl;
+                printLine();
             } else {
                 valid = true;
             }
         }
     }
-
-    cout << setfill(' ');
 
     // Return index
     return selection - 1;
@@ -292,15 +288,11 @@ void pressEnterToContinue() {
 }
 
 
-// MARK: IO
-template <typename T>
-void displayTitle(T title)
+// MARK: Output
+void printLine(int lineWidth)
 {
-    // Display Title
     cout << setfill('-');
-    cout << setw(79) << '-' << endl;
-	cout << "   " << title << endl;
-	cout << setw(79) << '-' << endl;
+    cout << setw(lineWidth) << '-' << endl;
     cout << setfill(' ');
 }
 
@@ -318,10 +310,10 @@ void displayResults(vector<Contact>& results)
 
 void displayContact(Contact& selectedContact)
 {
-    cout << setw(79) << '-' << endl;
+    printLine();
     selectedContact.printInfo();
     cout << endl;
-    cout << setw(79) << '-' << endl;
+    printLine();
 }
 
 void clearScreen() {

@@ -1,4 +1,5 @@
 #include "AddressBook.h"
+#include "Utilities.h"
 #include <iomanip>
 
 // =============================================================================
@@ -297,14 +298,12 @@ void AddressBook::reportGroupSummaries()
 void AddressBook::printContacts() const {
     for (int i = 0; i < contacts.size(); i++) {
         // Print line
-        cout << setfill('-');
-	    cout << setw(79) << '-' << endl;
+	    printLine();
 
         contacts[i].printInfo();
         
         // Print line
-	    cout << setw(79) << '-' << endl;
-        cout << setfill(' ');
+	    printLine();
     }
 }
 
@@ -317,12 +316,7 @@ void AddressBook::printContacts(vector<Contact>& contacts) const {
 
 void AddressBook::printReportGroup(vector<Contact>& contacts, string group)
 {
-    cout << setfill('-');
-    cout << setw(79) << '-' << endl;
-	cout << "   " << group << endl;
-	cout << setw(79) << '-' << endl;
-    cout << setfill(' ');
-    
+    displayTitle(group);
     printContacts(contacts);
 }
 

@@ -5,6 +5,9 @@
 #include "AddressBook.h"
 #include "Contact.h"
 
+// Constants
+const int LINE_WIDTH = 79;
+
 // Application setup
 vector<Menu> setupMenus();
 
@@ -20,9 +23,18 @@ string getFileName();
 int contactSelection(vector<Contact>& results);
 void pressEnterToContinue();
 
-// IO
+// Output
+void printLine(int lineWidth = LINE_WIDTH);
+
 template <typename T>
-void displayTitle(T title);
+void displayTitle(T title)
+{
+    // Display Title
+    printLine();
+	cout << "   " << title << endl;
+	printLine();
+}
+
 void displayResults(vector<Contact>& results);
 void displayContact(Contact& selectedContact);
 void clearScreen();

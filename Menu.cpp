@@ -1,5 +1,5 @@
 #include "Menu.h"
-
+#include "Utilities.h"
 
 // MARK: Constructors
 Menu::Menu() 
@@ -36,14 +36,9 @@ int Menu::displayMenu()
 {
     // Variables
     int selection{};
-    
-    // Set Fill Character
-    cout << setfill('-');
 
     // Display Title
-    cout << setw(79) << '-' << endl;
-	cout << "   " << title << endl;
-	cout << setw(79) << '-' << endl;
+    displayTitle(title);
 
 	// Display Options
     for (int i = 0; i < options.size(); i++)
@@ -57,9 +52,8 @@ int Menu::displayMenu()
     // Get User Selection
     selection = getUserSelection();
 
-    // Print line & Reset Fill
-    cout << setw(79) << '-' << endl;
-    cout << setfill(' ');
+    // Print line
+    printLine();
 
     return selection;
 }
@@ -71,7 +65,7 @@ int Menu::getUserSelection()
 
     while(true) {
         // Print line
-        cout << setw(79) << '-' << endl;
+        printLine();
 
         // Get Selection from User
         cout << "Please Select Option: ";
@@ -81,7 +75,7 @@ int Menu::getUserSelection()
         }
 
         // Print line
-        cout << setw(79) << '-' << endl;
+        printLine();
 
         cout << "Invalid input.\nPlease select the option you wish to perform by the number to its left.\n";
         cin.clear();
