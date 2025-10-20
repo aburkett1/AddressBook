@@ -141,6 +141,8 @@ int main()
                             break;
                         }
 
+                        // If contact was deleted, go back to previous menu instead of
+                        // continuing in the edit menu.
                         if (selection == 2)
                         {
                             break;
