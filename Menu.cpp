@@ -68,27 +68,25 @@ int Menu::getUserSelection()
 {
     // Variables
     int selection{};
-    
-    // Print line
-	cout << setw(79) << '-' << endl;
 
-    // Get Selection from User
-    cout << "Please Select Option: ";
-    cin >> selection;
-    cin.ignore(10000, '\n');
-
-    while (!verifySelection(selection))
-    {
+    while(true) {
         // Print line
-	    cout << setw(79) << '-' << endl;
+        cout << setw(79) << '-' << endl;
 
-        // Restate Prompt
+        // Get Selection from User
         cout << "Please Select Option: ";
-        cin >> selection;
+        if (cin >> selection && verifySelection(selection)) {
+            cin.ignore(10000, '\n');
+            return selection;
+        }
+
+        // Print line
+        cout << setw(79) << '-' << endl;
+
+        cout << "Invalid input.\nPlease select the option you wish to perform by the number to its left.\n";
+        cin.clear();
         cin.ignore(10000, '\n');
     }
-
-    return selection;
 }
 
 bool Menu::verifySelection(int selection)
