@@ -282,9 +282,11 @@ template <typename T>
 void displayTitle(T title)
 {
     // Display Title
+    cout << setfill('-');
     cout << setw(79) << '-' << endl;
 	cout << "   " << title << endl;
 	cout << setw(79) << '-' << endl;
+    cout << setfill(' ');
 }
 
 void displayResults(vector<Contact>& results)

@@ -292,8 +292,15 @@ void AddressBook::reportGroupSummaries()
 //contact in the vector.
 void AddressBook::printContacts() const {
     for (int i = 0; i < contacts.size(); i++) {
+        // Print line
+        cout << setfill('-');
+	    cout << setw(79) << '-' << endl;
+
         contacts[i].printInfo();
-        cout << endl;
+        
+        // Print line
+	    cout << setw(79) << '-' << endl;
+        cout << setfill(' ');
     }
 }
 

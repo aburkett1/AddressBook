@@ -94,6 +94,7 @@ int main()
                     addressBook.searchByName(getContactName(), searchResultsContacts, searchResultsIndexes);
 
                     // Display results for selection
+                    clearScreen();
                     displayResults(searchResultsContacts);
 
                     // Get user selection (contactSelection self-verifies)
