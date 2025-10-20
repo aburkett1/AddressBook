@@ -114,14 +114,6 @@ int main()
                         break;
                     }
 
-                    // Verify valid index
-                    if (selectedIndex < 0 || selectedIndex >= searchResultsContacts.size()) {
-                        clearScreen();
-                        cout << "Invalid selection. Please enter number associated with available contacts.\n";
-                        pressEnterToContinue();
-                        break;
-                    }
-
                     // Load and display selected contact
                     selectedContact = searchResultsContacts[selectedIndex];
                     displayContact(selectedContact);
