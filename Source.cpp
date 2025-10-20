@@ -83,6 +83,8 @@ int main()
                 switch (selection)
                 {
                 case 1: // Add a Contact
+                    displayTitle("ADD CONTACT");
+
                     addressBook.addContact(getContactDetails(contactTypeMenu));
                     break;
                 
@@ -298,6 +300,8 @@ int main()
                 switch (selection)
                 {
                 case 1: // Import File
+                    displayTitle("IMPORT");
+
                     fin.open(getFileName());
                     if(fin)
                     {
@@ -321,6 +325,7 @@ int main()
                     break;
 
                 case 2: // Export File
+                    displayTitle("EXPORT");
                     fout.open(getFileName());
                     addressBook.exportToFile(fout);
                     fout.close();
