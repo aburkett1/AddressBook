@@ -21,7 +21,11 @@ void AddressBook::addContact(Contact newContact)
 
 void AddressBook::editContact(Contact revisedContact, int index)
 {
-    contacts[index] = revisedContact;
+    contacts[index].setName(revisedContact.getName());
+    contacts[index].setEmail(revisedContact.getEmail());
+    contacts[index].setPhoneNumber(revisedContact.getPhoneNumber());
+    contacts[index].setCity(revisedContact.getCity());
+    contacts[index].setType(revisedContact.getType());
 }
 
 // Removes the contact at the specified index.

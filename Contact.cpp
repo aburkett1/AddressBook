@@ -36,6 +36,16 @@ Contact::Contact(const Contact& other)
     phoneNumber = other.getPhoneNumber();
     city = other.getCity();
     type = other.getType();
+
+    for (auto group : other.groups)
+    {
+        groups.push_back(group);
+    }
+
+    for (auto tag : other.tags)
+    {
+        tags.push_back(tag);
+    }
 }
 
 
