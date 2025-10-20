@@ -20,7 +20,7 @@ string getCity();
 string getGroup();
 string getTag();
 string getFileName();
-int contactSelection(vector<Contact>& results);
+int userSelection(vector<Contact>& results);
 void pressEnterToContinue();
 
 // Output
@@ -36,6 +36,7 @@ void displayTitle(T title)
 }
 
 void displayResults(vector<Contact>& results);
+void displaySelection(vector<Contact>& results);
 void displayContact(Contact& selectedContact);
 void clearScreen();
 

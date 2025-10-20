@@ -103,10 +103,10 @@ int main()
 
                     // Display results for selection
                     clearScreen();
-                    displayResults(searchResultsContacts);
+                    displaySelection(searchResultsContacts);
 
-                    // Get user selection (contactSelection self-verifies)
-                    selectedIndex = contactSelection(searchResultsContacts);
+                    // Get user selection (userSelection self-verifies)
+                    selectedIndex = userSelection(searchResultsContacts);
 
                     // Return to previous page if user enters 0
                     clearScreen();
@@ -205,6 +205,7 @@ int main()
                     while (selection != 0)
                     {
                         clearScreen();
+                        displayTitle("SEARCH CONTACTS");
                         switch (selection)
                         {
                         case 1: // By Name
@@ -241,6 +242,7 @@ int main()
                     while (selection != 0)
                     {
                         clearScreen();
+                        displayTitle("FILTER CONTACTS");
                         switch (selection)
                         {
                         case 1: // By Contact Type

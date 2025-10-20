@@ -246,7 +246,7 @@ string getFileName()
     return fileName;
 }
 
-int contactSelection(vector<Contact>& results)
+int userSelection(vector<Contact>& results)
 {
     // Variables
     int selection{};
@@ -298,13 +298,23 @@ void printLine(int lineWidth)
 
 void displayResults(vector<Contact>& results)
 {
+    for (auto result : results)
+    {
+        printLine();
+        result.printInfo();
+    }
+
+    printLine();
+}
+
+void displaySelection(vector<Contact>& results)
+{
     displayTitle("SELECT CONTACT");
     
     for (int i = 0; i < results.size(); i++)
     {
         displayTitle(i+1);
         results[i].printInfo();
-        cout << endl;
     }
 }
 

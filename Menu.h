@@ -21,12 +21,14 @@ public:
 
     // Utility
     int displayMenu();
-    int getUserSelection();
-    bool verifySelection(int selection);
 
 private:
     string title;
     vector<string> options;
+
+    // Utility
+    int getUserSelection();
+    bool verifySelection(int selection);
 };
 
 #endif
