@@ -349,7 +349,7 @@ void AddressBook::importFromFile(ifstream& in)
     
     // Get number of contacts
     in >> contactsSize;
-    cin.ignore(10000, '\n');
+    in.ignore(10000, '\n');
 
     for (int _ = 0; _ < contactsSize; _++)
     {

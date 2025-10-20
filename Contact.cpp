@@ -283,13 +283,13 @@ void Contact::importFromFile(ifstream& in)
 
     // Import type
     in >> contactType;
-    cin.ignore(10000, '\n');
+    in.ignore(10000, '\n');
 
     type = ContactType(contactType);
 
     // Import Groups
     in >> groupSize;
-    cin.ignore(10000, '\n');
+    in.ignore(10000, '\n');
 
     for (int _ = 0; _ < groupSize; _++)
     {
@@ -299,7 +299,7 @@ void Contact::importFromFile(ifstream& in)
 
     // Import Tags
     in >> tagSize;
-    cin.ignore(10000, '\n');
+    in.ignore(10000, '\n');
 
     for (int _ = 0; _ < tagSize; _++)
     {
