@@ -324,7 +324,7 @@ void AddressBook::printReportGroup(vector<Contact>& contacts, string group)
 void AddressBook::exportToFile(ofstream& out)
 {
     // Export contacts vector size
-    out << contacts.size();
+    out << contacts.size() << endl;
 
     // Export each contact in contacts
     for (auto contact : contacts)
