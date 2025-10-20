@@ -18,6 +18,7 @@ string getGroup();
 string getTag();
 string getFileName();
 int contactSelection(vector<Contact>& results);
+void pressEnterToContinue();
 
 // IO
 template <typename T>

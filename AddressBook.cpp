@@ -293,6 +293,7 @@ void AddressBook::reportGroupSummaries()
 void AddressBook::printContacts() const {
     for (int i = 0; i < contacts.size(); i++) {
         contacts[i].printInfo();
+        cout << endl;
     }
 }
 

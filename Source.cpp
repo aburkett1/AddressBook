@@ -70,13 +70,16 @@ int main()
 
     while (selection != 0)
     {
+        system("cls");
         switch (selection)
         {
         case 1: // MARK: Manage Contacts
+            system("cls");
             selection = manageContactsMenu.displayMenu();
 
             while (selection != 0)
             {
+                system("cls");
                 switch (selection)
                 {
                 case 1: // Add a Contact
@@ -101,9 +104,11 @@ int main()
                     displayContact(selectedContact);
 
                     // Display Edit Menu
+                    system("cls");
                     selection = editContactMenu.displayMenu();
                     while (selection != 0)
                     {
+                        system("cls");
                         switch (selection)
                         {
                         case 1: // Edit Contact
@@ -140,64 +145,79 @@ int main()
                             break;
                         }
 
+                        system("cls");
                         selection = editContactMenu.displayMenu();
                     }
                     
                     break;
 
                 case 3: // List All Contacts
+                    system("cls");
                     addressBook.printContacts();
+                    pressEnterToContinue();
+
                     break;
                 
                 default:
                     break;
                 }
 
+                system("cls");
                 selection = manageContactsMenu.displayMenu();
             }
 
             break;
 
         case 2: // MARK: Search and Filter Contacts
+            system("cls");
             selection = findContactsMenu.displayMenu();
             while (selection != 0)
             {
+                system("cls");
                 switch (selection)
                 {
                 case 1: // Search Contacts
+                    system("cls");
                     selection = searchContactsMenu.displayMenu();
                     while (selection != 0)
                     {
+                        system("cls");
                         switch (selection)
                         {
                         case 1: // By Name
                             searchResultsContacts = addressBook.searchByName(getContactName());
                             displayResults(searchResultsContacts);
+                            pressEnterToContinue();
                             break;
                         
                         case 2: // By Email
                             searchResultsContacts = addressBook.searchByEmail(getEmail());
                             displayResults(searchResultsContacts);
+                            pressEnterToContinue();
                             break;
 
                         case 3: // By Number
                             searchResultsContacts = addressBook.searchByNumber(getNumber());
                             displayResults(searchResultsContacts);
+                            pressEnterToContinue();
                             break;
 
                         default:
                             break;
                         }
                         
+                        system("cls");
                         selection = searchContactsMenu.displayMenu();
                     }
 
                     break;
 
                 case 2: // Filter Contacts
+                    system("cls");
                     selection = filterContactsMenu.displayMenu();
                     while (selection != 0)
                     {
+                        system("cls");
                         switch (selection)
                         {
                         case 1: // By Contact Type
@@ -207,6 +227,7 @@ int main()
                             {
                                 searchResultsContacts = addressBook.filterByType(ContactType(selection - 1));
                                 displayResults(searchResultsContacts);
+                                pressEnterToContinue();
                             }
                             
                             break;
@@ -214,17 +235,20 @@ int main()
                         case 2: // By City
                             searchResultsContacts = addressBook.filterByCity(getCity());
                             displayResults(searchResultsContacts);
+                            pressEnterToContinue();
                             break;
 
                         case 3: // By Tag
                             searchResultsContacts = addressBook.filterByTag(getTag());
                             displayResults(searchResultsContacts);
+                            pressEnterToContinue();
                             break;
                         
                         default:
                             break;
                         }
 
+                        system("cls");
                         selection = filterContactsMenu.displayMenu();
                     }
 
@@ -234,15 +258,18 @@ int main()
                     break;
                 }
 
+                system("cls");
                 selection = findContactsMenu.displayMenu();
             }
 
             break;
 
         case 3: // MARK: Import or Export Contacts
+            system("cls");
             selection = fileMenu.displayMenu();
             while (selection != 0)
             {
+                system("cls");
                 switch (selection)
                 {
                 case 1: // Import File
@@ -261,34 +288,41 @@ int main()
                     break;
                 }
 
+                system("cls");
                 selection = fileMenu.displayMenu();
             }
 
             break;
 
         case 4: // MARK: Reports
+            system("cls");
             selection = reportMenu.displayMenu();
             while (selection != 0)
             {
+                system("cls");
                 switch (selection)
                 {
                 case 1: // List by Type
                     addressBook.listReportContacts();
+                    pressEnterToContinue();
                     break;
                 
                 case 2: // Incomplete Contacts
                     searchResultsContacts = addressBook.filterByMissing();
                     displayResults(searchResultsContacts);
+                    pressEnterToContinue();
                     break;
 
                 case 3: // Group Summaries
                     addressBook.reportGroupSummaries();
+                    pressEnterToContinue();
                     break;
 
                 default:
                     break;
                 }
 
+                system("cls");
                 selection = reportMenu.displayMenu();
             }
 
@@ -298,6 +332,7 @@ int main()
             break;
         }
 
+        system("cls");
         selection = mainMenu.displayMenu();
     }
 

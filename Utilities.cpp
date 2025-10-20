@@ -271,6 +271,11 @@ int contactSelection(vector<Contact>& results)
     return selection - 1;
 }
 
+void pressEnterToContinue() {
+    cout << "Press [ENTER] to continue...";
+    cin.ignore(10000, '\n');
+}
+
 
 // MARK: IO
 template <typename T>
