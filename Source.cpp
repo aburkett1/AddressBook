@@ -291,8 +291,22 @@ int main()
                 {
                 case 1: // Import File
                     fin.open(getFileName());
-                    addressBook.importFromFile(fin);
-                    fin.close();
+                    if(fin)
+                    {
+                        // Import file
+                        addressBook.importFromFile(fin);
+                        fin.close();
+
+                        // Display success message
+                        cout << endl << "File Imported Successfully." << endl;
+                        pressEnterToContinue();
+                    }
+                    else
+                    {
+                        // Display failure message
+                        cout << endl << "File could not be found." << endl;
+                        pressEnterToContinue();
+                    }
                     break;
 
                 case 2: // Export File
