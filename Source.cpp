@@ -292,6 +292,9 @@ int main()
                     fin.open(getFileName());
                     if(fin)
                     {
+                        // Reset Address Book
+                        addressBook = AddressBook();
+                        
                         // Import file
                         addressBook.importFromFile(fin);
                         fin.close();
