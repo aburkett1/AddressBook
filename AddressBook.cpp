@@ -239,25 +239,25 @@ vector<Contact> AddressBook::filterByMissing() const
     //and calling printInfo(); if it is the matching type.
 void AddressBook::listReportContacts() const {
 
-    cout << "Person" << endl;
+    displayTitle("PESRON");
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getType() == PERSON)
             contacts[i].printInfo();
     }
 
-    cout << "Business" << endl;
+    displayTitle("BUSINESS");
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getType() == BUSINESS)
             contacts[i].printInfo();
     }
 
-    cout << "Vendor" << endl;
+    displayTitle("VENDOR");
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getType() == VENDOR)
             contacts[i].printInfo();
     }
 
-    cout << "Emergency" << endl;
+    displayTitle("EMERGENCY");
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getType() == EMERGENCY)
         contacts[i].printInfo();
@@ -356,11 +356,38 @@ void AddressBook::importFromFile(ifstream& in)
 
     for (int _ = 0; _ < contactsSize; _++)
     {
+        // Variables
+        bool hasGroup = false;
+        vector<string> groups;
+        
         // Import contact.
         contact.importFromFile(in);
 
         // Push contact into contacts vector.
         contacts.push_back(contact);
+
+        // Import groups into allGroups
+        groups = contact.getGroups();
+
+        // Check to see if allGroups already has the group.
+        for (int i = 0; i < groups.size(); i++)
+        {
+            for (auto group : allGroups)
+            {
+                // Check to see if the group from contact is already in allGroups.
+                if (group == groups[i])
+                {
+                    hasGroup = true;
+                    break;
+                }
+            }
+
+            // If it doesn't have it, add it.
+            if (!hasGroup)
+            {
+                allGroups.push_back(groups[i]);
+            }
+        }
 
         // Reset contact data.
         contact = Contact();

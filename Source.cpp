@@ -345,17 +345,27 @@ int main()
                 switch (selection)
                 {
                 case 1: // List by Type
+                    displayTitle("CONTACTS BY TYPE");
                     addressBook.listReportContacts();
                     pressEnterToContinue();
                     break;
                 
                 case 2: // Incomplete Contacts
+                    displayTitle("INCOMPLETE CONTACTS");
                     searchResultsContacts = addressBook.filterByMissing();
-                    displayResults(searchResultsContacts);
+                    if (searchResultsContacts.size() == 0)
+                    {
+                        cout << "No contacts are missing information." << endl;
+                    }
+                    else
+                    {
+                        displayResults(searchResultsContacts);
+                    }
                     pressEnterToContinue();
                     break;
 
                 case 3: // Group Summaries
+                    displayTitle("GROUP SUMMARIES");
                     addressBook.reportGroupSummaries();
                     pressEnterToContinue();
                     break;
