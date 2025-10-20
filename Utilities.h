@@ -25,5 +25,6 @@ template <typename T>
 void displayTitle(T title);
 void displayResults(vector<Contact>& results);
 void displayContact(Contact& selectedContact);
+void clearScreen();
 
 #endif

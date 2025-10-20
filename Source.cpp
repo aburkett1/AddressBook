@@ -70,16 +70,16 @@ int main()
 
     while (selection != 0)
     {
-        system("cls");
+        clearScreen();
         switch (selection)
         {
         case 1: // MARK: Manage Contacts
-            system("cls");
+            clearScreen();
             selection = manageContactsMenu.displayMenu();
 
             while (selection != 0)
             {
-                system("cls");
+                clearScreen();
                 switch (selection)
                 {
                 case 1: // Add a Contact
@@ -104,11 +104,11 @@ int main()
                     displayContact(selectedContact);
 
                     // Display Edit Menu
-                    system("cls");
+                    clearScreen();
                     selection = editContactMenu.displayMenu();
                     while (selection != 0)
                     {
-                        system("cls");
+                        clearScreen();
                         switch (selection)
                         {
                         case 1: // Edit Contact
@@ -145,14 +145,14 @@ int main()
                             break;
                         }
 
-                        system("cls");
+                        clearScreen();
                         selection = editContactMenu.displayMenu();
                     }
                     
                     break;
 
                 case 3: // List All Contacts
-                    system("cls");
+                    clearScreen();
                     addressBook.printContacts();
                     pressEnterToContinue();
 
@@ -162,26 +162,26 @@ int main()
                     break;
                 }
 
-                system("cls");
+                clearScreen();
                 selection = manageContactsMenu.displayMenu();
             }
 
             break;
 
         case 2: // MARK: Search and Filter Contacts
-            system("cls");
+            clearScreen();
             selection = findContactsMenu.displayMenu();
             while (selection != 0)
             {
-                system("cls");
+                clearScreen();
                 switch (selection)
                 {
                 case 1: // Search Contacts
-                    system("cls");
+                    clearScreen();
                     selection = searchContactsMenu.displayMenu();
                     while (selection != 0)
                     {
-                        system("cls");
+                        clearScreen();
                         switch (selection)
                         {
                         case 1: // By Name
@@ -206,18 +206,18 @@ int main()
                             break;
                         }
                         
-                        system("cls");
+                        clearScreen();
                         selection = searchContactsMenu.displayMenu();
                     }
 
                     break;
 
                 case 2: // Filter Contacts
-                    system("cls");
+                    clearScreen();
                     selection = filterContactsMenu.displayMenu();
                     while (selection != 0)
                     {
-                        system("cls");
+                        clearScreen();
                         switch (selection)
                         {
                         case 1: // By Contact Type
@@ -248,7 +248,7 @@ int main()
                             break;
                         }
 
-                        system("cls");
+                        clearScreen();
                         selection = filterContactsMenu.displayMenu();
                     }
 
@@ -258,18 +258,18 @@ int main()
                     break;
                 }
 
-                system("cls");
+                clearScreen();
                 selection = findContactsMenu.displayMenu();
             }
 
             break;
 
         case 3: // MARK: Import or Export Contacts
-            system("cls");
+            clearScreen();
             selection = fileMenu.displayMenu();
             while (selection != 0)
             {
-                system("cls");
+                clearScreen();
                 switch (selection)
                 {
                 case 1: // Import File
@@ -288,18 +288,18 @@ int main()
                     break;
                 }
 
-                system("cls");
+                clearScreen();
                 selection = fileMenu.displayMenu();
             }
 
             break;
 
         case 4: // MARK: Reports
-            system("cls");
+            clearScreen();
             selection = reportMenu.displayMenu();
             while (selection != 0)
             {
-                system("cls");
+                clearScreen();
                 switch (selection)
                 {
                 case 1: // List by Type
@@ -322,7 +322,7 @@ int main()
                     break;
                 }
 
-                system("cls");
+                clearScreen();
                 selection = reportMenu.displayMenu();
             }
 
@@ -332,7 +332,7 @@ int main()
             break;
         }
 
-        system("cls");
+        clearScreen();
         selection = mainMenu.displayMenu();
     }
 
