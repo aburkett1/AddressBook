@@ -312,7 +312,6 @@ void displayContact(Contact& selectedContact)
 {
     printLine();
     selectedContact.printInfo();
-    cout << endl;
     printLine();
 }
 

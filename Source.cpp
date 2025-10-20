@@ -109,8 +109,8 @@ int main()
                     selectedIndex = contactSelection(searchResultsContacts);
 
                     // Return to previous page if user enters 0
+                    clearScreen();
                     if (selectedIndex == -1) {
-                        clearScreen();
                         break;
                     }
 
@@ -119,7 +119,6 @@ int main()
                     displayContact(selectedContact);
 
                     // Display Edit Menu
-                    clearScreen();
                     selection = editContactMenu.displayMenu();
                     while (selection != 0)
                     {
