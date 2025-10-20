@@ -250,22 +250,37 @@ int contactSelection(vector<Contact>& results)
 {
     // Variables
     int selection{};
-    
-    // Select Contact
-    cout << "Select Contact: ";
-    cin >> selection;
+    bool valid = false;
 
-    // Verify bounds
-    while (selection < 1 || selection > results.size())
-    {
-        // Print line
-	    cout << setw(79) << '-' << endl;
+    cout << setfill('-');
 
-        // Restate Prompt
-        cout << "Select Contact: ";
-        cin >> selection;
-        cin.ignore(10000, '\n');
+    while (!valid) {
+        cout << "Select Contact Option (1-" << results.size() << "), enter 0 to cancel: ";
+
+        // Check for numerical input
+        if (!(cin >> selection)) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << setw(79) << '-' << endl;
+            cout << "Invalid input.\nPlease select Contact Option (1-" << results.size() << "), enter 0 to cancel.\n";
+            cout << setw(79) << '-' << endl;
+        } else {
+            cin.ignore(10000, '\n');
+
+            // Allows for user to return to previous page
+            if (selection == 0) return -1;
+
+            if (selection < 1 || selection > results.size()) {
+                cout << setw(79) << '-' << endl;
+                cout << "Invalid input.\nPlease select Contact Option (1-" << results.size() << "), enter 0 to cancel.\n";
+                cout << setw(79) << '-' << endl;
+            } else {
+                valid = true;
+            }
+        }
     }
+
+    cout << setfill(' ');
 
     // Return index
     return selection - 1;

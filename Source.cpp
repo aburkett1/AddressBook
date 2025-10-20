@@ -93,15 +93,37 @@ int main()
                     // Get name from user, Search by that name, and Store the results.
                     addressBook.searchByName(getContactName(), searchResultsContacts, searchResultsIndexes);
 
+                    // Verify search results
+                    if (searchResultsContacts.empty()) {
+                        clearScreen();
+                        cout << "No contacts found with that name.\n";
+                        pressEnterToContinue();
+                        break;
+                    }
+
                     // Display results for selection
                     clearScreen();
                     displayResults(searchResultsContacts);
 
                     // Get user selection (contactSelection self-verifies)
                     selectedIndex = contactSelection(searchResultsContacts);
-                    selectedContact = searchResultsContacts[selectedIndex];
 
-                    // Display the selected contact
+                    // Return to previous page if user enters 0
+                    if (selectedIndex == -1) {
+                        clearScreen();
+                        break;
+                    }
+
+                    // Verify valid index
+                    if (selectedIndex < 0 || selectedIndex >= searchResultsContacts.size()) {
+                        clearScreen();
+                        cout << "Invalid selection. Please enter number associated with available contacts.\n";
+                        pressEnterToContinue();
+                        break;
+                    }
+
+                    // Load and display selected contact
+                    selectedContact = searchResultsContacts[selectedIndex];
                     displayContact(selectedContact);
 
                     // Display Edit Menu
